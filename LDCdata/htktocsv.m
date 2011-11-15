@@ -99,24 +99,13 @@ else
     DATA2 = fread(fid2, [DIM nSamp], 'float')';
 end
 
+'creating matrix'
 M = 0:size(DATA1,2);
-M
 zrs = repmat(0,[size(DATA1, 1) 1]);
-%zrs
 M = [M; zrs DATA1];
-size(M,1)
-size(M,2)
 ons = repmat(1,[size(DATA2, 1) 1]);
-'size of data2'
-size(DATA2,1)
-%ons
-42
-tmp = [ons DATA2];
-size(tmp, 1)
-size(tmp,2)
-M = [M; tmp];
-size(M,1)
-size(M,2)
+M = [M; ons DATA2];
+'writing csv'
 csvwrite('features.csv', M);
 
 fclose(fid1);
