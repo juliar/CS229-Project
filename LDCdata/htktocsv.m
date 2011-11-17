@@ -96,19 +96,16 @@ else
     disp(sprintf('htkread: Reading %d frames, dim %d, uncompressed, from %s',nSamp,DIM,Filename2)); 
 
     % If not compressed: Read floating point data
-    DATA2 = fread(fid1, [DIM nSamp], 'float')';
+    DATA2 = fread(fid2, [DIM nSamp], 'float')';
 end
 
+'creating matrix'
 M = 0:size(DATA1,2);
-M
-zrs = zeros(size(DATA1, 1));
+zrs = repmat(0,[size(DATA1, 1) 1]);
 M = [M; zrs DATA1];
-size(M,1)
-size(M,2)
-ons = ones(size(DATA2, 1));
+ons = repmat(1,[size(DATA2, 1) 1]);
 M = [M; ons DATA2];
-size(M,1)
-size(M,2)
+'writing csv'
 csvwrite('features.csv', M);
 
 fclose(fid1);
