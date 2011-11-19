@@ -64,9 +64,9 @@ else
 end
 
 'averaging'
-AVGDATA1 = repmat(0, (int32(floor(size(DATA1, 1)/160))+1), (size(DATA1, 2)));
-for rowNum = 1:size(DATA1, 1)
-  avgRowNum = int32(floor(rowNum/160))+1;
+AVGDATA1 = repmat(0, (int32(floor(size(DATA1, 1)/160))), (size(DATA1, 2)));
+for rowNum = 1:(size(DATA1, 1)- mod(size(DATA1, 1), 160))
+  avgRowNum = int32(floor((rowNum-1)/160))+1;
 
   for col=1:size(DATA1,2) 
      AVGDATA1(avgRowNum,col) = AVGDATA1(avgRowNum,col) + DATA1(rowNum,col);
@@ -118,9 +118,9 @@ end
 
 
 'averaging'
-AVGDATA2 = repmat(0, (int32(floor(size(DATA2, 1)/160))+1), (size(DATA2, 2)));
-for rowNum = 1:size(DATA2, 1)
-  avgRowNum = int32(floor(rowNum/160))+1;
+AVGDATA2 = repmat(0, (int32(floor(size(DATA2, 1)/160))), (size(DATA2, 2)));
+for rowNum = 1:(size(DATA2, 1) - mod(size(DATA2, 1), 160))
+  avgRowNum = int32(floor((rowNum-1)/160))+1;
   for col=1:size(DATA2,2) 
      AVGDATA2(avgRowNum,col) = AVGDATA2(avgRowNum,col) + DATA2(rowNum,col);
   end
