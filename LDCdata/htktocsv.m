@@ -16,8 +16,8 @@
 %
 
 more off;
-Filename1 = 'M_features.lpc';
-Filename2 = 'G_features.lpc';
+Filename1 = 'M_features_w25.fbank';
+Filename2 = 'G_features_w25.fbank';
 fid1=fopen(Filename1,'r','b');
 fid2=fopen(Filename2, 'r', 'b');
 if fid1<0,
@@ -63,6 +63,21 @@ else
     DATA1 = fread(fid1, [DIM nSamp], 'float')';
 end
 
+'averaging'
+AVGDATA1 = repmat(0, (int32(floor(size(DATA1, 1)/160))+1), (size(DATA1, 2)));
+for rowNum = 1:size(DATA1, 1)
+  avgRowNum = int32(floor(rowNum/160))+1;
+
+  for col=1:size(DATA1,2) 
+     AVGDATA1(avgRowNum,col) = AVGDATA1(avgRowNum,col) + DATA1(rowNum,col);
+  end
+end
+AVGDATA1 = AVGDATA1 ./ 160;
+'done averaging'
+
+
+%%%%%%%%%%% DATA 2 %%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Read number of frames
 nSamp = fread(fid2,1,'int32');
 
@@ -99,13 +114,30 @@ else
     DATA2 = fread(fid2, [DIM nSamp], 'float')';
 end
 
+
+
+
+'averaging'
+AVGDATA2 = repmat(0, (int32(floor(size(DATA2, 1)/160))+1), (size(DATA2, 2)));
+for rowNum = 1:size(DATA2, 1)
+  avgRowNum = int32(floor(rowNum/160))+1;
+  for col=1:size(DATA2,2) 
+     AVGDATA2(avgRowNum,col) = AVGDATA2(avgRowNum,col) + DATA2(rowNum,col);
+  end
+end
+AVGDATA2 = AVGDATA2 ./ 160;
+'done averaging'
+
+%%%%%% to csv %%%%%%%%%%%%%%%%%%
+
 'creating matrix'
-M = 0:size(DATA1,2);
-zrs = repmat(0,[size(DATA1, 1) 1]);
-M = [M; zrs DATA1];
-ons = repmat(1,[size(DATA2, 1) 1]);
-M = [M; ons DATA2];
+M = 0:size(AVGDATA1,2);
+zrs = repmat(0,[size(AVGDATA1, 1) 1]);
+M = [M; zrs AVGDATA1];
+ons = repmat(1,[size(AVGDATA2, 1) 1]);
+M = [M; ons AVGDATA2];
 'writing csv'
 csvwrite('features.csv', M);
 
 fclose(fid1);
+fclose(fid2);
