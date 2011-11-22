@@ -1,0 +1,52 @@
+=== Run information ===
+
+Scheme:weka.classifiers.rules.ZeroR 
+Relation: features_mfcc_hamming_avg4s-weka.filters.unsupervised.attribute.Reorder-R2,3,4,5,6,7,8,9,10,11,12,13,1-weka.filters.unsupervised.attribute.Discretize-unset-class-temporarily-B2-M-1.0-Rlast
+Instances:6992
+Attributes:13
+              1
+              2
+              3
+              4
+              5
+              6
+              7
+              8
+              9
+              10
+              11
+              12
+              0
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+ZeroR predicts class value: '(0.5-inf)'
+
+Time taken to build model: 0seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        3598               51.4588 %
+Incorrectly Classified Instances      3394               48.5412 %
+Kappa statistic                          0     
+Mean absolute error                      0.4996
+Root mean squared error                  0.4998
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances             6992     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0         0          0         0         0          0.499    '(-inf-0.5]'
+                 1         1          0.515     1         0.68       0.499    '(0.5-inf)'
+Weighted Avg.    0.515     0.515      0.265     0.515     0.35       0.499
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+    0 3394 |    a = '(-inf-0.5]'
+    0 3598 |    b = '(0.5-inf)'
+

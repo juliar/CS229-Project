@@ -1,0 +1,79 @@
+=== Run information ===
+
+Scheme:weka.classifiers.functions.SMO -C 1.0 -L 0.0010 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0"
+Relation: features_mfcc_hamming_avg4s-weka.filters.unsupervised.attribute.Reorder-R2,3,4,5,6,7,8,9,10,11,12,13,1-weka.filters.unsupervised.attribute.Discretize-unset-class-temporarily-B2-M-1.0-Rlast
+Instances:6992
+Attributes:13
+              1
+              2
+              3
+              4
+              5
+              6
+              7
+              8
+              9
+              10
+              11
+              12
+              0
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: '(-inf-0.5]', '(0.5-inf)'
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         2.3909 * (normalized) 1
+ +      -0.7935 * (normalized) 2
+ +       0.7502 * (normalized) 3
+ +      -4.2832 * (normalized) 4
+ +      -1.5942 * (normalized) 5
+ +       1.4993 * (normalized) 6
+ +       1.939  * (normalized) 7
+ +       0.8344 * (normalized) 8
+ +       0.3435 * (normalized) 9
+ +       1.2657 * (normalized) 10
+ +      -1.6484 * (normalized) 11
+ +      -0.4455 * (normalized) 12
+ +       0.395 
+
+Number of kernel evaluations: 794834 (66.362% cached)
+
+
+
+Time taken to build model: 0.53seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        4229               60.4834 %
+Incorrectly Classified Instances      2763               39.5166 %
+Kappa statistic                          0.2077
+Mean absolute error                      0.3952
+Root mean squared error                  0.6286
+Relative absolute error                 79.1005 %
+Root relative squared error            125.778  %
+Total Number of Instances             6992     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.564     0.357      0.599     0.564     0.581      0.604    '(-inf-0.5]'
+                 0.643     0.436      0.61      0.643     0.626      0.604    '(0.5-inf)'
+Weighted Avg.    0.605     0.397      0.605     0.605     0.604      0.604
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 1914 1480 |    a = '(-inf-0.5]'
+ 1283 2315 |    b = '(0.5-inf)'
+

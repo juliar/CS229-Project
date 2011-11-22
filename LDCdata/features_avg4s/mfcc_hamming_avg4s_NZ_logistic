@@ -1,0 +1,88 @@
+=== Run information ===
+
+Scheme:weka.classifiers.functions.Logistic -R 1.0E-8 -M -1
+Relation: features_mfcc_hamming_avg4s_nozeros-weka.filters.unsupervised.attribute.Reorder-R2,3,4,5,6,7,8,9,10,11,12,13,1-weka.filters.unsupervised.attribute.Discretize-unset-class-temporarily-B2-M-1.0-Rlast
+Instances:6984
+Attributes:13
+              1
+              2
+              3
+              4
+              5
+              6
+              7
+              8
+              9
+              10
+              11
+              12
+              0
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Logistic Regression with ridge parameter of 1.0E-8
+Coefficients...
+                    Class
+Variable     '(-inf-0.5]'
+=========================
+1                  -0.082
+2                  0.0191
+3                 -0.0207
+4                  0.0931
+5                  0.0365
+6                 -0.0533
+7                 -0.0338
+8                 -0.0269
+9                 -0.0167
+10                -0.0375
+11                 0.0576
+12                 0.0265
+Intercept         -0.2901
+
+
+Odds Ratios...
+                    Class
+Variable     '(-inf-0.5]'
+=========================
+1                  0.9213
+2                  1.0193
+3                  0.9796
+4                  1.0976
+5                  1.0372
+6                  0.9481
+7                  0.9667
+8                  0.9735
+9                  0.9834
+10                 0.9632
+11                 1.0593
+12                 1.0268
+
+
+Time taken to build model: 0.81seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        4221               60.4381 %
+Incorrectly Classified Instances      2763               39.5619 %
+Kappa statistic                          0.2068
+Mean absolute error                      0.4726
+Root mean squared error                  0.4865
+Relative absolute error                 94.599  %
+Root relative squared error             97.3436 %
+Total Number of Instances             6984     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.563     0.356      0.598     0.563     0.58       0.633    '(-inf-0.5]'
+                 0.644     0.437      0.609     0.644     0.626      0.633    '(0.5-inf)'
+Weighted Avg.    0.604     0.398      0.604     0.604     0.604      0.633
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 1908 1483 |    a = '(-inf-0.5]'
+ 1280 2313 |    b = '(0.5-inf)'
+
