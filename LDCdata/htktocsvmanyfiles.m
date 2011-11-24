@@ -1,4 +1,4 @@
-function [] = htktocsvmanyfiles(filenamesFiles, outputFile)
+function [] = htktocsvmanyfiles(filenamesFiles, outputTrainFile, outputTestFile)
 % FilenameFiles is a list of the names of files containing 
 % the filenames to be parsed
 % Based on function written by Mark Hasegawa-Johnson
@@ -7,7 +7,6 @@ function [] = htktocsvmanyfiles(filenamesFiles, outputFile)
 %
 
 more off;
-dlmwrite(outputFile, []);
 filenamesFiles
 for filenamesFileInd=1:size(filenamesFiles,1)
   ['reading files of class', filenamesFileInd-1]
@@ -16,26 +15,26 @@ for filenamesFileInd=1:size(filenamesFiles,1)
   size(filename, 2)
   filesFid = fopen(filename,'r');
 
-  'passed here'
+  
   if filesFid<0,
     error(sprintf('Unable to read from file %s',filenamesFiles(filenamesFileInd,:)));
   end
   files = textscan(filesFid, '%s');
-  'passed here too'
+  
+  %for fileInd = 1
   for fileInd=1:size(files{1,1},1)
-    'here also'
+    
     file = files{1,1}{fileInd,1};
-    'me too'
+    
     %['reading file', file]
     size(file,1) 
     size(file,2)
     file
-    'righto'
+    
     [DATA, HTKCode] = htkread(file);
-    'done'
 
     AVGDATA = repmat(0, (int32(floor(size(DATA, 1)/160))), (size(DATA, 2)));
-    'here'
+    
     for rowNum = 1:(size(DATA, 1)- mod(size(DATA, 1), 160))
       avgRowNum = int32(floor((rowNum-1)/160))+1;
       %rowNum
@@ -44,13 +43,21 @@ for filenamesFileInd=1:size(filenamesFiles,1)
         AVGDATA(avgRowNum,col) = AVGDATA(avgRowNum,col) + DATA(rowNum,col);
       end
     end
-    'there'
-    AVGDATA = AVGDATA ./ 160;
-    'uhuh'
+    
+    AVGDATA = AVGDATA ./ 160
+    
     classVec = repmat(filenamesFileInd-1,[size(AVGDATA, 1) 1]);
-    'yep'
-    dlmwrite(outputFile, [AVGDATA classVec], '-append');
-    'ok'
+    
+    if filenamesFileInd == 1 && fileInd == 1
+      dlmwrite(outputTrainFile, 1:(size(AVGDATA,2))+1);
+      dlmwrite(outputTestFile, 1:(size(AVGDATA,2))+1);
+
+    end
+    if fileInd < size(files{1,1},1)*0.7
+      dlmwrite(outputTrainFile, [AVGDATA classVec], '-append');
+    else
+      dlmwrite(outputTestFile, [AVGDATA classVec], '-append');
+    end
   end
   fclose(filesFid);
   []
