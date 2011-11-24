@@ -41,14 +41,18 @@ if __name__ == '__main__':
   infile = sys.argv[1]
   featuretype = sys.argv[2]
   language = sys.argv[3]
-  directoryname = 'features_' + featuretype #ex features_fbank
+  directoryname = 'features_' + featuretype
 
   list_of_filenames = csv.reader(open(infile, 'rb'), delimiter=' ')
-  wav_and_features = csv.writer(open(directoryname+'/'+language+'_wav_fbank_files.scp', 'wb'), delimiter = ' ')
-  feature_filenames = csv.writer(open(directoryname+'/'+language + '_fbank_files.scp', 'wb'), delimiter = ' ')
+  wav_and_features = csv.writer(open(directoryname+'/'+language+'_wav_'+featuretype+'_files.scp', 'wb'), delimiter = ' ')
+  feature_filenames = csv.writer(open(directoryname+'/'+language + '_' + featuretype+'_files.scp', 'wb'), delimiter = ' ')
   
   for filename in list_of_filenames:
-    filename = directoryname + '/' +filename[0][0:-4]
-    outfilename =filename+'.'+featuretype #directoryname+'/' +filename[0][0:-4] + '.' + featuretype
+    if language == 'mandarin':
+      wavfiledirectory = 'MA/'
+    if language == 'german':
+      wavfiledirectory = 'GE/'
+    filename = filename[0]
+    outfilename =directoryname + '/' +filename[0:-4]+'.'+featuretype
     wav_and_features.writerow([filename, outfilename]) 
     feature_filenames.writerow([outfilename])
