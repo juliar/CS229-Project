@@ -1,0 +1,221 @@
+=== Run information ===
+
+Scheme:weka.classifiers.functions.SMO -C 1.0 -L 0.0010 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0"
+Relation: all_features_train-weka.filters.unsupervised.attribute.Discretize-unset-class-temporarily-B2-M-1.0-Rlast
+Instances:4463
+Attributes:84
+              0
+              1
+              2
+              3
+              4
+              5
+              6
+              7
+              8
+              9
+              10
+              11
+              12
+              13
+              14
+              15
+              16
+              17
+              18
+              19
+              20
+              21
+              22
+              23
+              24
+              25
+              26
+              27
+              28
+              29
+              30
+              31
+              32
+              33
+              34
+              35
+              36
+              37
+              38
+              39
+              40
+              41
+              42
+              43
+              44
+              45
+              46
+              47
+              48
+              49
+              50
+              51
+              52
+              53
+              54
+              55
+              56
+              57
+              58
+              59
+              60
+              61
+              62
+              63
+              64
+              65
+              66
+              67
+              68
+              69
+              70
+              71
+              72
+              73
+              74
+              75
+              76
+              77
+              78
+              79
+              80
+              81
+              82
+              83
+Test mode:evaluate on training data
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: '(-inf-0.5]', '(0.5-inf)'
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.7978 * (normalized) 0
+ +      -0.3875 * (normalized) 1
+ +       0.0407 * (normalized) 2
+ +      -0.8137 * (normalized) 3
+ +      -0.2955 * (normalized) 4
+ +       0.3199 * (normalized) 5
+ +       0.3101 * (normalized) 6
+ +       0.5665 * (normalized) 7
+ +       0.4806 * (normalized) 8
+ +       0.3484 * (normalized) 9
+ +      -0.542  * (normalized) 10
+ +       0.0117 * (normalized) 11
+ +       0.7978 * (normalized) 12
+ +      -0.3875 * (normalized) 13
+ +       0.0407 * (normalized) 14
+ +      -0.8137 * (normalized) 15
+ +      -0.2955 * (normalized) 16
+ +       0.3199 * (normalized) 17
+ +       0.3101 * (normalized) 18
+ +       0.5665 * (normalized) 19
+ +       0.4806 * (normalized) 20
+ +       0.3484 * (normalized) 21
+ +      -0.542  * (normalized) 22
+ +       0.0117 * (normalized) 23
+ +      -0.6584 * (normalized) 24
+ +      -0.6673 * (normalized) 25
+ +      -0.1289 * (normalized) 26
+ +      -0.2609 * (normalized) 27
+ +      -0.0753 * (normalized) 28
+ +      -0.4543 * (normalized) 29
+ +      -0.128  * (normalized) 30
+ +      -0.4899 * (normalized) 31
+ +      -0.1289 * (normalized) 32
+ +      -0.0295 * (normalized) 33
+ +      -0.1243 * (normalized) 34
+ +      -0.1737 * (normalized) 35
+ +       0.0781 * (normalized) 36
+ +       0.3012 * (normalized) 37
+ +       0.3357 * (normalized) 38
+ +      -0.1763 * (normalized) 39
+ +       0.0499 * (normalized) 40
+ +      -0.324  * (normalized) 41
+ +       0.0914 * (normalized) 42
+ +       0.2514 * (normalized) 43
+ +      -0.0071 * (normalized) 44
+ +       0.2111 * (normalized) 45
+ +      -0.1248 * (normalized) 46
+ +       0.1645 * (normalized) 47
+ +      -0.1427 * (normalized) 48
+ +       0.0433 * (normalized) 49
+ +      -0.0116 * (normalized) 50
+ +      -0.0375 * (normalized) 51
+ +       0.5228 * (normalized) 52
+ +      -0.1803 * (normalized) 53
+ +       0.2111 * (normalized) 54
+ +       0.4015 * (normalized) 55
+ +       0.4305 * (normalized) 56
+ +      -0.0588 * (normalized) 57
+ +       0.1505 * (normalized) 58
+ +       0.4416 * (normalized) 59
+ +      -0.7328 * (normalized) 60
+ +       0.7274 * (normalized) 61
+ +      -0.3203 * (normalized) 62
+ +      -0.0349 * (normalized) 63
+ +       0.1968 * (normalized) 64
+ +      -0.076  * (normalized) 65
+ +      -0.1686 * (normalized) 66
+ +      -0.2506 * (normalized) 67
+ +       0.174  * (normalized) 68
+ +      -0.8032 * (normalized) 69
+ +      -0.0277 * (normalized) 70
+ +       0.7978 * (normalized) 71
+ +      -0.3875 * (normalized) 72
+ +       0.0407 * (normalized) 73
+ +      -0.8137 * (normalized) 74
+ +      -0.2955 * (normalized) 75
+ +       0.3199 * (normalized) 76
+ +       0.3101 * (normalized) 77
+ +       0.5665 * (normalized) 78
+ +       0.4806 * (normalized) 79
+ +       0.3484 * (normalized) 80
+ +      -0.542  * (normalized) 81
+ +       0.0117 * (normalized) 82
+ +       0.0855
+
+Number of kernel evaluations: 3742285 (64.107% cached)
+
+
+
+Time taken to build model: 4.17seconds
+
+=== Evaluation on training set ===
+=== Summary ===
+
+Correctly Classified Instances        2740               61.3937 %
+Incorrectly Classified Instances      1723               38.6063 %
+Kappa statistic                          0.2279
+Mean absolute error                      0.3861
+Root mean squared error                  0.6213
+Relative absolute error                 77.2169 %
+Root relative squared error            124.2714 %
+Total Number of Instances             4463     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.613     0.385      0.611     0.613     0.612      0.614    '(-inf-0.5]'
+                 0.615     0.387      0.617     0.615     0.616      0.614    '(0.5-inf)'
+Weighted Avg.    0.614     0.386      0.614     0.614     0.614      0.614
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 1358  857 |    a = '(-inf-0.5]'
+  866 1382 |    b = '(0.5-inf)'
+

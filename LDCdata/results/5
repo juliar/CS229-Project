@@ -1,0 +1,123 @@
+=== Run information ===
+
+Scheme:weka.classifiers.rules.ZeroR 
+Relation: all_features_train-weka.filters.unsupervised.attribute.Discretize-unset-class-temporarily-B2-M-1.0-Rlast
+Instances:4463
+Attributes:84
+              0
+              1
+              2
+              3
+              4
+              5
+              6
+              7
+              8
+              9
+              10
+              11
+              12
+              13
+              14
+              15
+              16
+              17
+              18
+              19
+              20
+              21
+              22
+              23
+              24
+              25
+              26
+              27
+              28
+              29
+              30
+              31
+              32
+              33
+              34
+              35
+              36
+              37
+              38
+              39
+              40
+              41
+              42
+              43
+              44
+              45
+              46
+              47
+              48
+              49
+              50
+              51
+              52
+              53
+              54
+              55
+              56
+              57
+              58
+              59
+              60
+              61
+              62
+              63
+              64
+              65
+              66
+              67
+              68
+              69
+              70
+              71
+              72
+              73
+              74
+              75
+              76
+              77
+              78
+              79
+              80
+              81
+              82
+              83
+Test mode:evaluate on training data
+
+=== Classifier model (full training set) ===
+
+ZeroR predicts class value: '(0.5-inf)'
+
+Time taken to build model: 0seconds
+
+=== Evaluation on training set ===
+=== Summary ===
+
+Correctly Classified Instances        2248               50.3697 %
+Incorrectly Classified Instances      2215               49.6303 %
+Kappa statistic                          0     
+Mean absolute error                      0.5   
+Root mean squared error                  0.5   
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances             4463     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0         0          0         0         0          0.5      '(-inf-0.5]'
+                 1         1          0.504     1         0.67       0.5      '(0.5-inf)'
+Weighted Avg.    0.504     0.504      0.254     0.504     0.337      0.5  
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+    0 2215 |    a = '(-inf-0.5]'
+    0 2248 |    b = '(0.5-inf)'
+
