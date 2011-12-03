@@ -14,7 +14,7 @@ sliding = 0;
 % slidingDist in seconds
 slidingDist = 1;
 % Coordinate Standardization
-standardize = 1;
+standardize = 0;
 
 
 more off;
@@ -22,7 +22,7 @@ more off;
 bucketConst = bucketSize*40;
 slidingConst = slidingDist*40;
 
-if 0
+
 
 filenamesFiles
 for filenamesFileInd = 1:size(filenamesFiles,1)
@@ -106,7 +106,6 @@ for filenamesFileInd = 1:size(filenamesFiles,1)
   []
 end
 
-end
 
 
 if (standardize)
