@@ -51,7 +51,7 @@ def genFilenames(infile, featuretype, language):
   
   for filename in list_of_filenames:
     filename = filename[0]
-    outfilename = wav_feature_fn[0:-18] + '/' +filename[3:-4] + '.'+featuretype
+    outfilename = directoryname + '/' + infilename + '/' +filename[3:-4] + '.'+featuretype
     wav_and_features.writerow([filename, outfilename]) 
     feature_filenames.writerow([outfilename])
   return wav_feature_fn, features_only_fn

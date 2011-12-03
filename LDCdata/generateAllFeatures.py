@@ -25,8 +25,6 @@ Flags that would be convenient but aren't implemented:
 - Option to just run HCOPY
 - Specify the languages, featuretype, and/or data subsets
 
-
-
 '''  
 
 
@@ -38,13 +36,15 @@ import os
 if __name__ == '__main__':
   
   languages = ['german', 'mandarin']
-  subsets = ['strong2_0.scp', 'stronger2_5.scp', 'strongest2_7.scp']
+  subsets = ['strength0.scp'] #'strong2_0.scp', 'stronger2_5.scp', 'strongest2_7.scp', 
   
   configFiles = {}
   configFiles['mfcc'] = 'mfccconfig.txt'
-  configFiles['fbank'] = 'fbankconfig'
-  configFiles['lpc'] = 'lpcconfig'
-  configFiles['mfcchamming'] = 'mfccconfighamming'
+  configFiles['fbank'] = 'fbankconfig.txt'
+  configFiles['lpc'] = 'lpcconfig.txt'
+  configFiles['mfccplus'] = 'mfccplusconfig.txt'
+  
+  #configFiles['mfcchamming'] = 'mfccconfighamming'
   
   all_feature_only_files = []
   
@@ -73,11 +73,3 @@ if __name__ == '__main__':
         print hcopycommand
         
         os.system(hcopycommand)
-
-        for path in feature_only_file:
-          # CALL MATLAB SCRIPT
-          
-          
-          
-          
-          
