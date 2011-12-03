@@ -9,20 +9,20 @@ LDCdata/features_<feature_type>/MA
 LDCdata/features_<feature_type>/GE
 
 from LDCdata directory:
-python addOutputFilenames.py <wavfilenamelist>.scp <feature_type> <language>
+python generateFilenames.py <wavfilenamelist>.scp <feature_type> <language>
 
 --
 ex.
 LDCdata/features_fbank/MA
 LDCdata/features_fbank/GE
 
-python addOutputFilenames.py germanwav.scp fbank german
+python generateFilenames.py germanwav.scp fbank german
 
 --
 
 output (2 .scp files in LDCdata/features_fbank):
-LDCdata/features_fbank/german_wav_fbank_files.scp --> contains wav and fbank file paths
-LDCdata/features_fbank/german_fbank_files.scp --> contains fbank file paths
+LDCdata/features_fbank/germanwav_wav_fbank_files.scp --> contains wav and fbank file paths
+LDCdata/features_fbank/germanwav_fbank_files.scp --> contains fbank file paths
 
 Note: paths from LDCdata
 
@@ -37,22 +37,27 @@ HCOPY -C fbankcconfig.txt -S features_fbank/german_wav_fbank_files.scp
 
 '''
 
-if __name__ == '__main__':
-  infile = sys.argv[1]
-  featuretype = sys.argv[2]
-  language = sys.argv[3]
+def genFilenames(infile, featuretype, language):
+  infilename = infile[0:-4] #removes .scp extension
   directoryname = 'features_' + featuretype
 
   list_of_filenames = csv.reader(open(infile, 'rb'), delimiter=' ')
-  wav_and_features = csv.writer(open(directoryname+'/'+language+'_wav_'+featuretype+'_files.scp', 'wb'), delimiter = ' ')
-  feature_filenames = csv.writer(open(directoryname+'/'+language + '_' + featuretype+'_files.scp', 'wb'), delimiter = ' ')
+  
+  wav_feature_fn = directoryname+'/'+infilename+'_wav_'+featuretype+'_files.scp'
+  features_only_fn = directoryname+'/'+infilename + '_' + featuretype+'_files.scp'
+  
+  wav_and_features = csv.writer(open(wav_feature_fn, 'wb'), delimiter = ' ')
+  feature_filenames = csv.writer(open(features_only_fn, 'wb'), delimiter = ' ')
   
   for filename in list_of_filenames:
-    if language == 'mandarin':
-      wavfiledirectory = 'MA/'
-    if language == 'german':
-      wavfiledirectory = 'GE/'
     filename = filename[0]
-    outfilename =directoryname + '/' +filename[0:-4]+'.'+featuretype
+    outfilename = wav_feature_fn[0:-18] + '/' +filename[3:-4] + '.'+featuretype
     wav_and_features.writerow([filename, outfilename]) 
     feature_filenames.writerow([outfilename])
+  return wav_feature_fn, features_only_fn
+    
+if __name__ == '__main__':
+  wavfilenamelist = sys.argv[1]
+  featuretype = sys.argv[2]
+  language = sys.argv[3]
+  genFilenames(wavfilenamelist, featuretype, language)
